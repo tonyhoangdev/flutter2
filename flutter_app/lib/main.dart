@@ -1,35 +1,9 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  print("Hi Tony");
-  runApp(
-      MyApp()
-  );
+  print("Hi Tony2");
+  runApp(MyStatefulWidget());
 }
-
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo1',
-        home: Scaffold(
-            appBar: AppBar(
-              title: Text('Flutter Demo'),
-            ),
-            body: Center(
-              child: Column(
-                children: <Widget>[
-                  MyStatefulWidget()
-                ],
-              ),
-            )
-        )
-    );
-  }
-}
-
 
 class MyStatelessWidget extends StatelessWidget {
   @override
@@ -37,13 +11,12 @@ class MyStatelessWidget extends StatelessWidget {
     return Container(
         color: Colors.red,
         child: Center(
-            child: Text(
-              "Hello from Tony",
-              textDirection: TextDirection.ltr,
-              style: TextStyle(fontSize: 32.0, color: Colors.white),
-            )
-        )
-    );
+          child: Text(
+            "Hello Tony2",
+            textDirection: TextDirection.ltr,
+            style: TextStyle(fontSize: 32.0, color: Colors.white),
+          ),
+        ));
   }
 }
 
@@ -53,16 +26,28 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+
+  var myColor = Colors.red;
+
+  changeColor() {
+    setState(() {
+      myColor = Colors.teal;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-      child: Center(
-        child: RaisedButton(
-          child: Text("Click"),
-          onPressed: () {
-            print("Hi from MyStatefulWidget");
-          },
+    return MaterialApp(
+      home: Container(
+        color: myColor,
+        child: Center(
+          child: RaisedButton(
+            child: Text("Click"),
+            onPressed: () {
+              print('click');
+              changeColor();
+            },
+          ),
         ),
       ),
     );
