@@ -38,16 +38,21 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Container(
-        color: myColor,
-        child: Center(
-          child: RaisedButton(
-            child: Text("Click"),
-            onPressed: () {
-              print('click');
-              changeColor();
-            },
-          ),
+      home: Padding(
+        padding: EdgeInsets.only(top: 60.0, left: 30.0),
+        child: Column(
+          children: <Widget>[
+            Text("Col1"),
+            Text("Col2"),
+            Text("Col3"),
+            Row(
+              children: <Widget>[
+                Text("Row1"),
+                Text("Row2"),
+                Text("Row3"),
+              ],
+            )
+          ],
         ),
       ),
     );
