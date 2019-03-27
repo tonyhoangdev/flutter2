@@ -39,19 +39,57 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Padding(
-        padding: EdgeInsets.only(top: 60.0, left: 30.0),
+        padding: EdgeInsets.only(top: 24.0, left: 10.0, right: 10.0),
         child: Column(
           children: <Widget>[
-            Text("Col1"),
-            Text("Col2"),
-            Text("Col3"),
-            Row(
-              children: <Widget>[
-                Text("Row1"),
-                Text("Row2"),
-                Text("Row3"),
-              ],
-            )
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  children: <Widget>[
+                    Text("Row1"),
+                    Text("Row2"),
+                    Text("Row3"),
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  children: <Widget>[
+                    Text("Row1"),
+                    Text("Row2"),
+                    Text("Row3"),
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  children: <Widget>[
+                    Text("Row1"),
+                    Text("Row2"),
+                    Text("Row3"),
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  children: <Widget>[
+                    Text("Row1"),
+                    Text("Row2"),
+                    Text("Row3"),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
