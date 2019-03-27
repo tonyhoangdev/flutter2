@@ -3,8 +3,17 @@ import 'package:flutter/material.dart';
 void main() {
   print("Hi Tony2");
 //  runApp(MyStatefulWidget());
-  runApp(MaterialApp(
-      debugShowCheckedModeBanner: false, home: MyStatefulWidget2()));
+  runApp(
+      MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: MyStatefulWidget2(),
+        theme: ThemeData(
+          primaryColor: Colors.red,
+          accentColor: Colors.lime,
+          brightness: Brightness.dark,
+        )
+      ),
+  );
 }
 
 class MyStatelessWidget extends StatelessWidget {
