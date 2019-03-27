@@ -138,6 +138,14 @@ class MyStatefulWidget2 extends StatefulWidget {
 }
 
 class _MyStatefulWidget2State extends State<MyStatefulWidget2> {
+
+  bool checkInput = false;
+
+
+  printData(input) {
+    print(input);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -241,6 +249,16 @@ class _MyStatefulWidget2State extends State<MyStatefulWidget2> {
                 print(input);
               },
             ),
+          ),
+          Checkbox(
+            value: checkInput,
+            onChanged: (bool value) {
+              setState(() {
+                printData(value);
+                checkInput = value;
+              });
+            },
+
           )
         ],
       )
