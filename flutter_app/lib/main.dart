@@ -26,7 +26,6 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-
   var myColor = Colors.red;
 
   changeColor() {
@@ -49,7 +48,58 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   children: <Widget>[
                     IconButton(
                       icon: Icon(Icons.person),
-                      onPressed: (){
+                      onPressed: () {
+                        print("person");
+                      },
+                    ),
+                    Expanded(
+                      child: Text("Row1"),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.add),
+                      onPressed: () {
+                        print('add');
+                      },
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.person),
+                      onPressed: () {
+                        print("person");
+                      },
+                    ),
+                    Expanded(
+                        child: Row(children: [
+                      Text("Row1"),
+                      Text("Row2"),
+                      Text("Row3"),
+                    ])),
+                    IconButton(
+                      icon: Icon(Icons.add),
+                      onPressed: () {
+                        print("add");
+                      },
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.person),
+                      onPressed: () {
                         print("person");
                       },
                     ),
@@ -67,43 +117,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   children: <Widget>[
                     IconButton(
                       icon: Icon(Icons.person),
-                      onPressed: (){
-                        print("person");
-                      },
-                    ),
-                    Text("Row1"),
-                    Text("Row2"),
-                    Text("Row3"),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.person),
-                      onPressed: (){
-                        print("person");
-                      },
-                    ),
-                    Text("Row1"),
-                    Text("Row2"),
-                    Text("Row3"),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.person),
-                      onPressed: (){
+                      onPressed: () {
                         print("person");
                       },
                     ),
