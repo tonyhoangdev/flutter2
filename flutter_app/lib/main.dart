@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
+import 'screen2.dart';
+import 'screen3.dart';
 
 void main() {
   print("Hi Tony2");
 //  runApp(MyStatefulWidget());
   runApp(
-      MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: MyStatefulWidget2(),
-        theme: ThemeData(
-          primaryColor: Colors.red,
-          accentColor: Colors.redAccent,
-          brightness: Brightness.dark,
-        )
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyStatefulWidget2(),
+      theme: ThemeData(
+        primaryColor: Colors.red,
+        accentColor: Colors.redAccent,
+        brightness: Brightness.dark,
       ),
+      routes: <String, WidgetBuilder>{
+        "/screen2": (BuildContext context) => Screen2(),
+        "/screen3": (BuildContext context) => Screen3(),
+      },
+    ),
   );
 }
 
@@ -138,7 +144,6 @@ class MyStatefulWidget2 extends StatefulWidget {
 }
 
 class _MyStatefulWidget2State extends State<MyStatefulWidget2> {
-
   bool checkInput = false;
   int gender = 1;
 
@@ -167,72 +172,70 @@ class _MyStatefulWidget2State extends State<MyStatefulWidget2> {
         ],
       ),
       drawer: Drawer(
-          child: Column(
-        children: <Widget>[
-          Stack(
-            children: <Widget>[
-              Image(
-                image: AssetImage("images/image1.jpg"),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 30.0, left: 16.0),
-                child: CircleAvatar(
-                  radius: 40.0,
-                  backgroundImage: AssetImage('images/avatar.jpg'),
+        child: Column(
+          children: <Widget>[
+            Stack(
+              children: <Widget>[
+                Image(
+                  image: AssetImage("images/image1.jpg"),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 120.0, left: 16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text("Tony Hoang", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0,
-                    color: Colors.white)),
-                    Text("htm.dev304@gmail.com", style: TextStyle(color: Colors.white)),
-                  ],
+                Padding(
+                  padding: EdgeInsets.only(top: 30.0, left: 16.0),
+                  child: CircleAvatar(
+                    radius: 40.0,
+                    backgroundImage: AssetImage('images/avatar.jpg'),
+                  ),
                 ),
-              )
-            ],
-          ),
-          ListView(
-            shrinkWrap: true,
-            children: <Widget>[
-              ListTile(
-                leading: Icon(Icons.add),
-                title: Text("Units"),
-                onTap: (){
-
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.add),
-                title: Text("Vehicle Type"),
-                onTap: (){
-
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.add),
-                title: Text("Theme Mode"),
-                onTap: (){
-
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.add),
-                title: Text("Settings"),
-                onTap: (){
-
-                },
-              ),
-            ],
-          ),
-        ],
-      ),
+                Padding(
+                  padding: EdgeInsets.only(top: 120.0, left: 16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text("Tony Hoang",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.0,
+                              color: Colors.white)),
+                      Text("htm.dev304@gmail.com",
+                          style: TextStyle(color: Colors.white)),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            ListView(
+              shrinkWrap: true,
+              children: <Widget>[
+                ListTile(
+                  leading: Icon(Icons.add),
+                  title: Text("Units"),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/screen2');
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.add),
+                  title: Text("Vehicle Type"),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: Icon(Icons.add),
+                  title: Text("Theme Mode"),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: Icon(Icons.add),
+                  title: Text("Settings"),
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: (){
+        onPressed: () {
           print("tap");
         },
       ),
@@ -242,9 +245,7 @@ class _MyStatefulWidget2State extends State<MyStatefulWidget2> {
             padding: const EdgeInsets.all(16.0),
             child: TextField(
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
-                hintText: "Username"
-              ),
+                  icon: Icon(Icons.person), hintText: "Username"),
               onChanged: (input) {
                 print(input);
               },
@@ -284,7 +285,7 @@ class _MyStatefulWidget2State extends State<MyStatefulWidget2> {
             ],
           )
         ],
-      )
+      ),
     );
   }
 }
