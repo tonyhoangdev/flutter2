@@ -230,7 +230,18 @@ class _MyStatefulWidget2State extends State<MyStatefulWidget2> {
       ),
       body: Column(
         children: <Widget>[
-          Text("Body"),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              decoration: InputDecoration(
+                icon: Icon(Icons.person),
+                hintText: "Username"
+              ),
+              onChanged: (input) {
+                print(input);
+              },
+            ),
+          )
         ],
       )
     );
