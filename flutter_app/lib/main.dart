@@ -9,7 +9,7 @@ void main() {
         home: MyStatefulWidget2(),
         theme: ThemeData(
           primaryColor: Colors.red,
-          accentColor: Colors.lime,
+          accentColor: Colors.redAccent,
           brightness: Brightness.dark,
         )
       ),
@@ -228,6 +228,11 @@ class _MyStatefulWidget2State extends State<MyStatefulWidget2> {
           print("tap");
         },
       ),
+      body: Column(
+        children: <Widget>[
+          Text("Body"),
+        ],
+      )
     );
   }
 }
