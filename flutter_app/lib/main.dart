@@ -110,24 +110,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.person),
-                      onPressed: () {
-                        print("person");
-                      },
-                    ),
-                    Text("Row1"),
-                    Text("Row2"),
-                    Text("Row3"),
-                  ],
-                ),
-              ),
-            ),
+
+            Image(
+              image: AssetImage("images/image1.jpg"),
+            )
           ],
         ),
       ),
