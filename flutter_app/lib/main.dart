@@ -132,22 +132,86 @@ class _MyStatefulWidget2State extends State<MyStatefulWidget2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      title: Text("Tony"),
-      actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.beenhere),
-          onPressed: () {
-            print('icon');
-          },
-        ),
-        IconButton(
-          icon: Icon(Icons.person),
-          onPressed: () {
-            print('icon');
-          },
-        )
-      ],
-    ));
+      appBar: AppBar(
+        title: Text("Tony"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.beenhere),
+            onPressed: () {
+              print('icon');
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.person),
+            onPressed: () {
+              print('icon');
+            },
+          )
+        ],
+      ),
+      drawer: Drawer(
+          child: Column(
+        children: <Widget>[
+          Stack(
+            children: <Widget>[
+              Image(
+                image: AssetImage("images/image1.jpg"),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 30.0, left: 16.0),
+                child: CircleAvatar(
+                  radius: 40.0,
+                  backgroundImage: AssetImage('images/avatar.jpg'),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 120.0, left: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text("Tony Hoang", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0,
+                    color: Colors.white)),
+                    Text("htm.dev304@gmail.com", style: TextStyle(color: Colors.white)),
+                  ],
+                ),
+              )
+            ],
+          ),
+          ListView(
+            shrinkWrap: true,
+            children: <Widget>[
+              ListTile(
+                leading: Icon(Icons.add),
+                title: Text("Hello there"),
+                onTap: (){
+
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.add),
+                title: Text("Hello there"),
+                onTap: (){
+
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.add),
+                title: Text("Hello there"),
+                onTap: (){
+
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.add),
+                title: Text("Hello there"),
+                onTap: (){
+
+                },
+              ),
+            ],
+          ),
+        ],
+      )),
+    );
   }
 }
