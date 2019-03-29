@@ -4,6 +4,7 @@ import 'mygridview2.dart';
 import "widget_app.dart";
 import 'json_data.dart';
 import 'package:flutter_intermediate/Notification.dart' as Noti;
+import 'package:flutter_intermediate/MyPageView.dart';
 
 void main() {
   print("Tony");
@@ -12,6 +13,7 @@ void main() {
 //    MyGridView2(),
 //    WidgetApp(),
 //    JsonData(),
-  Noti.Notification(),
+//  Noti.Notification(),
+    MyPageView(),
   );
 }
