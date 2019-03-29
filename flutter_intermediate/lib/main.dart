@@ -7,6 +7,7 @@ import 'package:flutter_intermediate/Notification.dart' as Noti;
 import 'package:flutter_intermediate/MyPageView.dart';
 import 'package:flutter_intermediate/MySharedPreferences.dart';
 import 'package:flutter_intermediate/MySliverAppBar.dart';
+import 'package:flutter_intermediate/MyStack.dart';
 
 void main() {
   print("Tony");
@@ -18,6 +19,7 @@ void main() {
 //    Noti.Notification(),
 //    MyPageView(),
 //    MySharedPreferences(),
-  MySliverAppBar(),
+//  MySliverAppBar(),
+    MyStack(),
   );
 }
