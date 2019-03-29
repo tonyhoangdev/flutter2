@@ -6,6 +6,7 @@ import 'json_data.dart';
 import 'package:flutter_intermediate/Notification.dart' as Noti;
 import 'package:flutter_intermediate/MyPageView.dart';
 import 'package:flutter_intermediate/MySharedPreferences.dart';
+import 'package:flutter_intermediate/MySliverAppBar.dart';
 
 void main() {
   print("Tony");
@@ -16,6 +17,7 @@ void main() {
 //    JsonData(),
 //    Noti.Notification(),
 //    MyPageView(),
-    MySharedPreferences(),
+//    MySharedPreferences(),
+  MySliverAppBar(),
   );
 }
