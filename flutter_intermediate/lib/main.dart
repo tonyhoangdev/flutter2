@@ -5,6 +5,7 @@ import "widget_app.dart";
 import 'json_data.dart';
 import 'package:flutter_intermediate/Notification.dart' as Noti;
 import 'package:flutter_intermediate/MyPageView.dart';
+import 'package:flutter_intermediate/MySharedPreferences.dart';
 
 void main() {
   print("Tony");
@@ -13,7 +14,8 @@ void main() {
 //    MyGridView2(),
 //    WidgetApp(),
 //    JsonData(),
-//  Noti.Notification(),
-    MyPageView(),
+//    Noti.Notification(),
+//    MyPageView(),
+    MySharedPreferences(),
   );
 }
