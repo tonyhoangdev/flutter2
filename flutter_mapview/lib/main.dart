@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:map_view/map_view.dart';
 import 'common/AppDef.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 void main() {
   MapView.setApiKey(AppDef.apiKey);
@@ -64,27 +66,44 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  MapViewType mapViewType = MapViewType.normal;
   MapView _mapView;
- var staticMapProvider;
 
+  Future getData() async {
+    var url = "http://27.66.68.227:3000";
+    var data = await http.get(url);
+    var dataDecoded = json.decode(data.body);
+
+    print(dataDecoded);
+  }
   @override
   void initState() {
     super.initState();
     _mapView = new MapView();
-    staticMapProvider = new StaticMapProvider(AppDef.apiKey);
+
+    getData();
+
+
   }
 
   showMap() {
 //    _mapView.show(new MapOptions(showUserLocation: true));
-    _mapView.show(
-        new MapOptions(
-            mapViewType: MapViewType.normal,
-            showUserLocation: true,
-            initialCameraPosition: new CameraPosition(
-                new Location(21.020833, 105.779771), 14.0),
-            title: "Recently Visited"),
-        toolbarActions: [new ToolbarAction("Close", 1)]);
-
+    _mapView.show(new MapOptions(
+      mapViewType: mapViewType,
+      showMyLocationButton: true,
+      hideToolbar: true,
+//        showCompassButton:true,
+      showUserLocation: true,
+      initialCameraPosition: new CameraPosition(
+          new Location(21.029384909035937, 105.77118122407131), 16,
+          bearing: 80),
+    ));
+//
+//    _mapView.setMarkers(<Marker>[
+//      new Marker("1", "Work", 21.029384909035937, 105.77118122407131,
+//          color: Colors.blue),
+//      new Marker("2", "Nossa Familia Coffee", 21.0179495, 105.7824433),
+//    ]);
   }
 
   @override
@@ -96,17 +115,28 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+      body: Column(
+        children: <Widget>[
+          Container(
+            child: SizedBox(
+              height: 500.0,
+              child: showMap(),
+            ),
+          )
+        ],
       ),
-      body: Container(
-          child: showMap(),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          setState(() {
+            if (mapViewType != MapViewType.normal) {
+              mapViewType = MapViewType.normal;
+            } else {
+              mapViewType = MapViewType.hybrid;
+            }
+          });
+        },
       ),
-
     );
-
   }
-
 }
